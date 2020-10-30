@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Личный сайт сутдента GeekBrains</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+
+		var answer = parseInt(Math.random() * 100);
+		var tryCount = 0;
+		var maxTryCount = 7;
+
+		function readInt(id){
+			var number = document.getElementById(id).value;
+			return parseInt(number);
+		}
+
+		function write(text){
+			document.getElementById("info").innerHTML = text;
+		}
+
+		function hide(id){
+			document.getElementById(id).style.display = "none";
+		}
+
+		function guess(){
+			tryCount++;
+
+			if(userAnswerOne == 'q'){
+			    write("Игра прервана");
+			    hide("button");
+				hide("userAnswerOne");
+				hide("userAnswerTwo");
+			}
+
+			if(userAnswerTwo == 'q') {
+			    write("Игра прервана");
+			    hide("button");
+			    hide("userAnswerOne");
+				hide("userAnswerTwo");
+			}
+
+			var userAnswerOne = readInt("userAnswerOne");
+			var userAnswerTwo = readInt("userAnswerTwo");
+
+			/*var userAnswer = readInt();
+			if(userAnswer == answer){
+				write("<b>Поздравляю! вы угадали!</b>");
+				hide("button");
+				hide("userAnswer");
+			} else if(tryCount >= maxTryCount){
+				write("Вы проирали <br> Правильный ответ: " + answer);
+				hide("button");
+				hide("userAnswer");
+			} else if(userAnswer > answer){
+				write("Вы ввели слишком большое число <br> Попробуйте еще раз. Введите число от 1 до 100");
+			} else if(userAnswer < answer){
+				write("Вы ввели слишком маленькое число <br> Попробуйте еще раз. Введите число от 1 до 100");
+			}*/
+		}
+	</script>
+</head>
+<body>
+
+<div class="content">
+	<div class="header">
+		<a href="index.html">Главная</a>
+		<a href="puzzle.html">Загадки</a>
+		<a href="#">Угадайка</a>
+	</div>
+
+<div class="contentWrap">
+	<div class="content">
+		<div class="center">
+			
+			<h1>Игра угадайка на двоих</h1>
+
+
+			<div class="box">
+				<p id="info">Добро пожаловать в ко-оп Угадай число!<br> Для прерывания игры введите q <br><br> Первый игрок, угадайте число от о до 100</p> 
+				<input type="text" id="userAnswerOne">
+				<p>Второй игрок, угадайте число от о до 100</p>
+				<input type="text" id="userAnswerTwo">
+				<br>
+
+				<a href="#" onClick="guess();" id= "button">Начать</a>
+
+			</div>
+
+		</div>
+	</div>
+</div>	
+
+	
+<div class="footer">
+	Copyright &copy; Volkov Denis
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	var correctAnswer = 0;
+
+	function generatePuzzle(condition, optionOne, optionTwo){
+		var answer = prompt(condition);
+
+		answer = answer.toLowerCase();
+		if (answer == optionOne || answer == optionTwo){
+			alert("Поздавляю! Это правильный ответ");
+			correctAnswer++;
+		} else {
+			alert("Нет! Это не так")
+		}
+	}
+
+	generatePuzzle("Загадка #1: Каких камней не бывает в речке?",
+		"сухих");
+
+	generatePuzzle("Загадка #2: Вы сидите в самолете, впереди вас лошадь, сзади автомобиль. Где вы находитесь?",
+		"карусель",
+		"на карусели")
+
+	generatePuzzle("Загадка #3: Что принадлежит вам, однако другие этим пользуются чаще, чем вы сами?",
+		"имя",
+		"фамилия");
+
+	generatePuzzle("Загадка #4: Чем больше из нее берешь, тем больше она становиться. Что это?",
+		"яма",
+		"ямка");
+
+	/*var answer = prompt("Загадка #1: Каких камней не бывает в речке?");
+
+	answer = answer.toLowerCase();
+	if (answer == "сухих") {
+		alert("Поздавляю! Это правильный ответ");
+		correctAnswer++;
+	} else {
+		alert("Нет! Это не так");
+	}
+
+	answer = prompt("Загадка #2: Вы сидите в самолете, впереди вас лошадь, сзади автомобиль. Где вы находитесь?");
+	answer = answer.toLowerCase();
+	if (answer == "карусель" || answer == "на карусели") {
+		alert("Поздавляю! Это правильный ответ");
+		correctAnswer++;
+	} else {
+		alert("Нет! Это не так");
+	}
+
+	answer = prompt("Загадка #3: Что принадлежит вам, однако другие этим пользуются чаще, чем вы сами?");
+	answer = answer.toLowerCase();
+	if (answer == "имя" || answer == "фамилия") {
+		alert("Поздавляю! Это правильный ответ");
+		correctAnswer++;
+	} else {
+		alert("Нет! Это не так");
+	}
+
+	answer = prompt("Загадка #4: Чем больше из нее берешь, тем больше она становиться. Что это?");
+	answer = answer.toLowerCase();
+	if (answer == "яма" || answer == "ямка") {
+		alert("Поздавляю! Это правильный ответ");
+		correctAnswer++;
+	} else {
+		alert("Нет! Это не так");
+	}*/
+
+	alert("Игра окончена. Колличество правильных ответов: " + correctAnswer);
+</script>

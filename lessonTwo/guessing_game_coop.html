@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+
+	alert("Добро пожаловать в ко-оп Угадай число! Для прерывания игры введите q");
+
+    var answer = 10;
+	//var answer = parseInt(Math.random() * 100);
+	var userOneAnswer = prompt("Первый игрок, угадайте число от о до 100");
+    var userTwoAnswer = prompt("Второй игрок угадайте число от о до 100");
+	var TryCount = new Boolean(true);
+
+
+
+	while(true){
+       
+        if(userOneAnswer == 'q'){
+            alert("Игра прервана");
+            break;
+        }
+
+        if(userTwoAnswer == 'q') {
+            alert("Игра прервана");
+            break;
+
+        userOneAnswer = parseInt(userOneAnswer);
+        userTwoAnswer = parseInt(userOneAnswer);
+
+        } if (userOneAnswer == answer && userTwoAnswer == answer) {
+            alert("Оба игрока Угадали!");
+            break;
+        }
+
+        if(userOneAnswer == answer){
+            alert("Поздравляю, первый игрок, вы угадали!");
+            break;
+        } else if(userOneAnswer > answer){
+            alert("Первый игрок, вы ввели слишком большое число.");
+        } else if(userOneAnswer < answer){
+            alert("Первый игрок, вы ввели слишком маленькое число.");
+        } 
+
+        if(userTwoAnswer == answer){
+            alert("Поздравляю, второй игрок, вы угадали!");
+            break;
+        } else if(userTwoAnswer > answer){
+            alert("Второй игрок, вы ввели слишком большое число.");
+        } else if(userTwoAnswer < answer){
+            alert("Второй игрок, вы ввели слишком маленькое число.");
+        }
+
+        userOneAnswer = prompt("Первый игрок, попробуйте еще раз. Введите число от 1 до 100");
+        userTwoAnswer = prompt("Второй игрок, попробуйте еще раз. Введите число от 1 до 100");
+    }
+
+</script>

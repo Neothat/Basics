@@ -1,0 +1,55 @@
+<meta charset="utf-8">
+<script type="text/javascript">
+	
+	function numberOne(x){
+		var arr = [];
+		for (var i = 1; i <= x; i++) {
+			arr.push(i);
+		}
+		return arr;
+	}
+
+	function numberTwo(x){
+		var sum = 0;
+		for (var i = 0; i < x.length; i++){
+			sum += x[i];
+		}
+		return sum;
+	}
+
+	function numberTree(x){
+		var max = x[0];
+		for (var i = 1; i < x.length; i++) {
+			if (x[i] > max) {
+				max = x[i];
+			}
+		}
+		return max;
+	}
+
+	function numberFour(x){
+		var min = x[0];
+		for (var i = 1; i < x.length; i++) {
+			if (x[i] < min) {
+				min = x[i];
+			}
+		}
+		return min;
+	}
+
+	function numberFive(x){
+		var even = [];
+		for (var i = 0; i < x.length; i++){
+			if ((x[i] % 2) == 0){
+				even.push(x[i]);
+			}
+		}
+		return even;
+	}
+
+	alert(numberOne(5));
+	alert(numberTwo([1, 23, 4, 64, 3]));
+	alert(numberTree([54, 3, 6, 7, 77]));
+	alert(numberFour([43, 5, 3, 6, 34]));
+	alert(numberFive([33, 22, 65, 78, 4]));
+</script>
