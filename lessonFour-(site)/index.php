@@ -8,13 +8,9 @@
 <body>
 
 <div class="content">
-	<div class="header">
-		<a href="#">Главная</a>
-		<a href="puzzle.html">Загадки</a>
-		<a href="guess.html">Угадайка</a>
-		<a href="guessCoop.html">Угадайка ко-оп</a>
-		<a href="password.html">Генератор паролей</a>
-	</div>
+<?php
+	include "menu.php";
+?>
 
 	<h1>Личный сайт сутдента GeekBrains</h1>
 
@@ -40,7 +36,7 @@
 	</div>		
 </div>
 <div class="footer">
-	Copyright &copy; Volkov Denis
+	Copyright &copy; <?php echo date("Y");?> Volkov Denis
 </div>
 </body>
 </html>

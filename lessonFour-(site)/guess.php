@@ -46,13 +46,9 @@
 <body>
 
 <div class="content">
-	<div class="header">
-		<a href="index.html">Главная</a>
-		<a href="puzzle.html">Загадки</a>
-		<a href="#">Угадайка</a>
-		<a href="guessCoop.html">Угадайка ко-оп</a>
-		<a href="password.html">Генератор паролей</a>
-	</div>
+	<?php
+		include "menu.php";
+	?>
 
 <div class="contentWrap">
 	<div class="content">
@@ -76,7 +72,7 @@
 
 	
 <div class="footer">
-	Copyright &copy; Volkov Denis
+	Copyright &copy; <?php echo date("Y");?> Volkov Denis
 </div>
 </body>
 </html>
