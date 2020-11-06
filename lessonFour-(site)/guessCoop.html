@@ -12,11 +12,15 @@
 
 		function readInt(id){
 			var number = document.getElementById(id).value;
-			return parseInt(number);
+			return number;
 		}
 
 		function write(text){
 			document.getElementById("info").innerHTML = text;
+		}
+
+		function write2(text){
+			document.getElementById("info2").innerHTML = text;
 		}
 
 		function hide(id){
@@ -26,22 +30,61 @@
 		function guess(){
 			tryCount++;
 
-			if(userAnswerOne == 'q'){
+			var userAnswerOne = readInt("userAnswerOne");
+			var userAnswerTwo = readInt("userAnswerTwo");
+
+			if(userAnswerOne == 'q' || userAnswerOne == 'Q'){
 			    write("Игра прервана");
 			    hide("button");
 				hide("userAnswerOne");
 				hide("userAnswerTwo");
 			}
 
-			if(userAnswerTwo == 'q') {
+			if(userAnswerTwo == 'q' || userAnswerTwo == 'Q') {
 			    write("Игра прервана");
 			    hide("button");
 			    hide("userAnswerOne");
 				hide("userAnswerTwo");
 			}
 
-			var userAnswerOne = readInt("userAnswerOne");
-			var userAnswerTwo = readInt("userAnswerTwo");
+			userAnswerOne = parseInt("userAnswerOne");
+			userAnswerTwo = parseInt("userAnswerTwo");
+			
+			if(userAnswerOne == answer && userAnswerTwo == answer){
+				write("Оба игрока угадали");
+				hide("button");
+			    hide("userAnswerOne");
+				hide("userAnswerTwo");
+			} else if (userAnswerOne == answer) {
+				write("Первый игрок угадал");
+				hide("button");
+			    hide("userAnswerOne");
+				hide("userAnswerTwo");
+			} else if (userAnswerTwo == answer) {
+				write("Второй игрок угадал");
+				hide("button");
+			    hide("userAnswerOne");
+				hide("userAnswerTwo");
+			} else if (tryCount >= maxTryCount){
+				write("Вы проирали <br> Правильный ответ: " + answer);
+				hide("button");
+				hide("userAnswer");
+			}
+
+			userAnswerOne = parseInt(userAnswerOne);
+			userAnswerTwo = parseInt(userAnswerTwo);
+
+			if (userAnswerOne > answer) {
+				write("Первый игрок ввел слишком большое число");
+			} if else (userAnswerOne < answer) {
+				write("Первый игрок ввел слишком маленькое число");
+			}
+
+			if (userAnswerTwo > answer) {
+				write2("Второй ввел слишком большое число");
+			} if else (userAnswerTwo < answer) {
+				write2("Второй игрок ввел слишком маленькое число");
+			}
 
 			/*var userAnswer = readInt();
 			if(userAnswer == answer){
@@ -79,7 +122,7 @@
 			<div class="box">
 				<p id="info">Добро пожаловать в ко-оп Угадай число!<br> Для прерывания игры введите q <br><br> Первый игрок, угадайте число от о до 100</p> 
 				<input type="text" id="userAnswerOne">
-				<p>Второй игрок, угадайте число от о до 100</p>
+				<p id="info2">Второй игрок, угадайте число от о до 100</p>
 				<input type="text" id="userAnswerTwo">
 				<br>
 
