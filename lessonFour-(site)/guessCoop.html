@@ -27,6 +27,14 @@
 			document.getElementById(id).style.display = "none";
 		}
 
+		function end(text){
+			write(text);
+			hide("button");
+			hide("userAnswerOne");
+			hide("userAnswerTwo");
+			hide("info2");
+		}
+
 		function guess(){
 			tryCount++;
 
@@ -34,41 +42,11 @@
 			var userAnswerTwo = readInt("userAnswerTwo");
 
 			if(userAnswerOne == 'q' || userAnswerOne == 'Q'){
-			    write("Игра прервана");
-			    hide("button");
-				hide("userAnswerOne");
-				hide("userAnswerTwo");
+			    end("Игра прервана");
 			}
 
 			if(userAnswerTwo == 'q' || userAnswerTwo == 'Q') {
-			    write("Игра прервана");
-			    hide("button");
-			    hide("userAnswerOne");
-				hide("userAnswerTwo");
-			}
-
-			userAnswerOne = parseInt("userAnswerOne");
-			userAnswerTwo = parseInt("userAnswerTwo");
-			
-			if(userAnswerOne == answer && userAnswerTwo == answer){
-				write("Оба игрока угадали");
-				hide("button");
-			    hide("userAnswerOne");
-				hide("userAnswerTwo");
-			} else if (userAnswerOne == answer) {
-				write("Первый игрок угадал");
-				hide("button");
-			    hide("userAnswerOne");
-				hide("userAnswerTwo");
-			} else if (userAnswerTwo == answer) {
-				write("Второй игрок угадал");
-				hide("button");
-			    hide("userAnswerOne");
-				hide("userAnswerTwo");
-			} else if (tryCount >= maxTryCount){
-				write("Вы проирали <br> Правильный ответ: " + answer);
-				hide("button");
-				hide("userAnswer");
+			    end("Игра прервана");
 			}
 
 			userAnswerOne = parseInt(userAnswerOne);
@@ -76,30 +54,29 @@
 
 			if (userAnswerOne > answer) {
 				write("Первый игрок ввел слишком большое число");
-			} if else (userAnswerOne < answer) {
+			} else if (userAnswerOne < answer) {
 				write("Первый игрок ввел слишком маленькое число");
 			}
 
 			if (userAnswerTwo > answer) {
 				write2("Второй ввел слишком большое число");
-			} if else (userAnswerTwo < answer) {
+			} else if (userAnswerTwo < answer) {
 				write2("Второй игрок ввел слишком маленькое число");
 			}
-
-			/*var userAnswer = readInt();
-			if(userAnswer == answer){
-				write("<b>Поздравляю! вы угадали!</b>");
-				hide("button");
-				hide("userAnswer");
-			} else if(tryCount >= maxTryCount){
+			
+			if(userAnswerOne == answer && userAnswerTwo == answer){
+				end("Оба игрока угадали")
+			} else if (userAnswerOne == answer) {
+				end("Первый игрок угадал");
+			} else if (userAnswerTwo == answer) {
+				end("Второй игрок угадал");
+			} else if (tryCount >= maxTryCount){
 				write("Вы проирали <br> Правильный ответ: " + answer);
 				hide("button");
-				hide("userAnswer");
-			} else if(userAnswer > answer){
-				write("Вы ввели слишком большое число <br> Попробуйте еще раз. Введите число от 1 до 100");
-			} else if(userAnswer < answer){
-				write("Вы ввели слишком маленькое число <br> Попробуйте еще раз. Введите число от 1 до 100");
-			}*/
+				hide("userAnswerOne");
+				hide("userAnswerTwo");
+				hide("info2");
+			}	
 		}
 	</script>
 </head>
@@ -109,7 +86,9 @@
 	<div class="header">
 		<a href="index.html">Главная</a>
 		<a href="puzzle.html">Загадки</a>
-		<a href="#">Угадайка</a>
+		<a href="guess.html">Угадайка</a>
+		<a href="#">Угадайка ко-оп</a>
+		<a href="password.html">Генератор паролей</a>
 	</div>
 
 <div class="contentWrap">
